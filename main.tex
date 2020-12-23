@@ -1,0 +1,117 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+%\usepackage{lmodern}
+\usepackage{wrapfig}
+\usepackage[font={small}]{caption}
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{listings}
+\usepackage{courier}
+\lstset{language=Python}
+\lstset{frame=single}
+\lstset{basicstyle=\footnotesize\ttfamily, breaklines=true}
+\lstset{numbers=left, numberstyle=\small, numbersep=5pt}
+
+% Pictures
+\usepackage{graphicx}
+\usepackage{subfig}
+
+% Set page sizes
+\setlength{\parindent}{5ex}
+\usepackage{indentfirst}
+\usepackage{geometry}
+\geometry{a4paper, top=35mm, bottom=25mm, right=25mm, left=25mm}
+\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\chaptername}{}
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Set font details
+\usepackage{mathptmx}
+%% Set font chapter
+\usepackage{titlesec}
+
+\usepackage{multirow}
+\usepackage{arydshln}
+\usepackage{diagbox}
+\usepackage{siunitx}
+
+\usepackage[hidelinks,bookmarks=true, bookmarksopenlevel=2]{hyperref}
+\usepackage[hypcap=false]{caption}
+
+% References
+\usepackage[backend=biber, style=apa, citestyle=authoryear, maxcitenames=1, mincitenames=1, uniquename=false, uniquelist=false]{biblatex}
+\addbibresource{project_references.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+%\makeglossaries
+\begin{document}
+
+\input{Parts/titlepage.tex}
+% HERE -> ADD PROJECT DESCRIPTION TO PDFs folder
+% \includepdf[pages=-,pagecommand={}]{PDFs/}
+
+\pagenumbering{roman}
+\chapter*{Acknowledgements}
+\input{Parts/acknowledgements.tex}
+
+\begin{abstract}
+\thispagestyle{plain}
+\setcounter{page}{2}
+\input{Parts/abstract.tex}
+
+\end{abstract}
+
+\setcounter{page}{3}
+\tableofcontents{}
+\listoffigures
+\listoftables
+
+\chapter{Introduction}
+\pagenumbering{arabic}
+% HERE -> EDIT INITIAL PAGE NUMBER of INTRODUCTION
+\setcounter{page}{1}
+\label{chapter:Introduction}
+\input{Parts/introduction.tex}
+
+\chapter{Background Knowledge}
+\label{chapter:Back_Knowledge}
+\input{Parts/background_knowledge.tex}
+
+\chapter{Materials and Methods}
+\label{chapter:MatsAndMethds}
+\input{Parts/materials_and_methods.tex}
+
+\chapter{Results}
+\label{chapter:Results}
+\input{Parts/results.tex}
+
+\chapter{Discussion}
+\label{chapter:Discussion}
+\input{Parts/discussion.tex}
+
+\chapter{Conclusion}
+\label{chapter:Conclusion}
+\input{Parts/conclusion.tex}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+% HERE -> DELETE IF NEEDED
+%\appendix
+%\addcontentsline{toc}{chapter}{Appendix~\ref{chapter:Appendix_side_exp}}
+%\chapter{Additional Considerations}
+%\label{chapter:Appendix_side_exp}
+%\input{Parts/appendix.tex}
+
+% HERE -> ADD PLAGIARISM FORM to PDFs folder
+%\includepdf[pages=-]{PDFs/}
+
+\end{document}
